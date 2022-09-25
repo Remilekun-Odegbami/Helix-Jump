@@ -7,10 +7,19 @@ public class PlayerController : MonoBehaviour
     public Rigidbody playerRb;
     public float bounceForce = 6;
 
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
     // method that is called when the ball hits the ground or a collider
     private void OnCollisionEnter(Collision collision)
     {
+        audioManager.Play("Bounce");
         playerRb.velocity = new Vector3(playerRb.velocity.x, bounceForce, playerRb.velocity.z);
+        
         string materialName = collision.transform.GetComponent<MeshRenderer>().material.name;
         if (materialName == "Safe (Instance)")
         {
@@ -18,12 +27,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (materialName == "Unsafe (Instance)")
         {
-            GameManager.gameOver = true;
+            GameManager.isGameOver = true;
+            audioManager.Play("Game Over");
 
         }
-        else if (materialName == "LastRing (Instance)")
+        else if (materialName == "LastRing (Instance)" && !GameManager.isLevelCompleted)
         {
-            GameManager.levelCompleted = true; ;
+            GameManager.isLevelCompleted = true;
+            audioManager.Play("Level Completed");
         }
     }
 }
