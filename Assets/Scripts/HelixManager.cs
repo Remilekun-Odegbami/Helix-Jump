@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class HelixManager : MonoBehaviour
 {
@@ -42,3 +44,6 @@ public class HelixManager : MonoBehaviour
         ySpawn -= ringDistance; // distance between the helix rings
     }
 }
+
+
+

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody playerRb;
+    public ParticleSystem explosion;
     public float bounceForce = 6;
 
     private AudioManager audioManager;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         if (materialName == "Safe (Instance)")
         {
             // The ball hits the safe area
+            explosion.Stop();
         }
         else if (materialName == "Unsafe (Instance)")
         {
@@ -31,8 +33,9 @@ public class PlayerController : MonoBehaviour
             audioManager.Play("Game Over");
 
         }
-        else if (materialName == "LastRing (Instance)" && !GameManager.isLevelCompleted)
+        else if (materialName == "Last Ring (Instance)" && !GameManager.isLevelCompleted)
         {
+            explosion.Play();
             GameManager.isLevelCompleted = true;
             audioManager.Play("Level Completed");
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    public float rotationSpeed = 150;
+    public float rotationSpeed = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +28,10 @@ public class Rotator : MonoBehaviour
         }
 
         // Rotate cylinder For Mobile
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-        {
-            float xDelta = Input.GetTouch(0).deltaPosition.x;
-            transform.Rotate(0, -xDelta * rotationSpeed * Time.deltaTime, 0);
-        }
+        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        //{
+        //    float xDelta = Input.GetTouch(0).deltaPosition.x;
+        //    transform.Rotate(0, -xDelta * rotationSpeed * Time.deltaTime, 0);
+        //}
     }
 }

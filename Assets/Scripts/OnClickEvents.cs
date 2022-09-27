@@ -6,13 +6,16 @@ using TMPro;
 public class OnClickEvents : MonoBehaviour
 {
     public TextMeshProUGUI muteText;
+
+
     // Start is called before the first frame update
     void Start()
     {
         if (GameManager.mute)
         {
             muteText.text = "/";
-        } else
+        }
+        else
         {
             muteText.text = "";
         }
@@ -24,7 +27,8 @@ public class OnClickEvents : MonoBehaviour
         {
             GameManager.mute = false;
             muteText.text = "";
-        } else
+        }
+        else
         {
             GameManager.mute = true;
             muteText.text = "/";
@@ -37,4 +41,5 @@ public class OnClickEvents : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit");
     }
+
 }

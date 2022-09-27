@@ -6,11 +6,12 @@ public class CharacterSelection : MonoBehaviour
 {
     public GameObject[] characters;
     private int selectedCharacter = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         // disable all characters
-        foreach(GameObject character in characters)
+        foreach (GameObject character in characters)
         {
             character.SetActive(false);
         }
@@ -18,7 +19,7 @@ public class CharacterSelection : MonoBehaviour
         characters[selectedCharacter].SetActive(true);
     }
 
-// change selected character to be the player
+    // change selected character to be the player
     public void ChangeCharacter(int newCharacter)
     {
         characters[selectedCharacter].SetActive(false); // disable default character
