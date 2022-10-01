@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
-    public static float timeLeft = 40.0f;
+    public static float timeLeft = 50.0f;
     public TextMeshProUGUI timeText;
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class GameTimer : MonoBehaviour
             {
                 GameManager.isTimeUp = true;
                 Debug.Log("Time Up!");
-                timeLeft = 40.0f;
+                timeLeft = 50.0f;
             }
         }
     }

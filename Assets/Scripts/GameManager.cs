@@ -77,17 +77,17 @@ public class GameManager : MonoBehaviour
             startMenuPanel.SetActive(false);
         }
         //For Mobile
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !isGameStarted)
-        {
-            // if the player is pointing to a UI element on Mobile
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-            {
-                return;
-            }
-            isGameStarted = true;
-            gamePlayPanel.SetActive(true);
-            startMenuPanel.SetActive(false);
-        }
+        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !isGameStarted)
+        //{
+        //    // if the player is pointing to a UI element on Mobile
+        //    if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+        //    {
+        //        return;
+        //    }
+        //    isGameStarted = true;
+        //    gamePlayPanel.SetActive(true);
+        //    startMenuPanel.SetActive(false);
+        //}
 
         if (isGameOver)
         {
@@ -129,6 +129,7 @@ public class GameManager : MonoBehaviour
 
     void LevelCompleted()
     {
+        Time.timeScale = 0;
         levelCompletedPanel.SetActive(true);
 
         //reload the level 
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("CurrentLevelIndex", currentLevelIndex + 1);
             // load next level
             SceneManager.LoadScene("Level");
+
         }
     }
     void TimeUp()

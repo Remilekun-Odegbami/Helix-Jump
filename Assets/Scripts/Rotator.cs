@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    public float rotationSpeed = 10;
+    public float rotationSpeed = 150; // 20 for mobile, 150 for pc
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +20,14 @@ public class Rotator : MonoBehaviour
         // check if game is started before allowing users to rotate the cylinder
         if (!GameManager.isGameStarted) { return; }
 
-        // Rotate cylinder for PC
+        //Rotate cylinder for PC
         if (Input.GetMouseButton(0))
         {
             float mouseX = Input.GetAxisRaw("Mouse X"); // get the mouse input
             transform.Rotate(0, -mouseX * rotationSpeed * Time.deltaTime, 0); // make the cylinder rotate on mouse direction
         }
 
-        // Rotate cylinder For Mobile
+        //Rotate cylinder For Mobile
         //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         //{
         //    float xDelta = Input.GetTouch(0).deltaPosition.x;
